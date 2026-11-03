@@ -1,3 +1,0 @@
-number of transactions actually processed: 2817
-latency average = 21.320 ms
-tps = 187.613925 (without initial connection time)
