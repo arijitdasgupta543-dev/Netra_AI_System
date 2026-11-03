@@ -1,0 +1,18 @@
+Subject: Request for arXiv endorsement (cs.CV) — smartphone cataract screening system paper
+
+Dear Dr. [SURNAME],
+
+My name is Arijit Das Gupta. I studied Computer Science and Engineering at Kurukshetra University, and I have written a paper on an offline-first smartphone system for cataract screening and referral, which I would like to post on arXiv in cs.CV before submitting it to PLOS Digital Health. As a first-time submitter I need an endorsement, and I am writing to you because of your work on [ONE OF THEIR PAPERS / TOPIC].
+
+The paper compares four convolutional networks for on-device cataract screening on clinician-reviewed public images and verifies the surrounding system with database behaviour tests, fault injection and a 200,401-patient load test. The full text is attached, and all code is public at https://github.com/arijitdasgupta543-dev/netra-ai-bd.
+
+If you are willing to endorse me, arXiv's endorsement link is:
+https://arxiv.org/auth/endorse?x=[ENDORSEMENT CODE]
+(or go to https://arxiv.org/auth/endorse and enter the code [ENDORSEMENT CODE]).
+
+Endorsement only confirms that the paper is suitable for the category; it does not imply review or agreement. I understand if you are not able to help, and I thank you for your time either way.
+
+Kind regards,
+Arijit Das Gupta
+arijitdasgupta543@gmail.com
+ORCID 0009-0003-2144-5068

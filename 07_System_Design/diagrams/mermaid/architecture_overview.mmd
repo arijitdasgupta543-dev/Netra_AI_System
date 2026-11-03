@@ -1,0 +1,40 @@
+flowchart LR
+  subgraph Phone["Health worker phone (PWA)"]
+    CAM["Guided camera<br/>3:4 view, # grid, tap"]
+    QC["Quality checks<br/>light, blur, glare, distance"]
+    IRIS["Iris detector<br/>MediaPipe, auto circle"]
+    ED["Manual circle editor"]
+    ROI["ROI + thumbnail<br/>pupil only"]
+    AI["On-device AI<br/>TF.js, research demo"]
+    Q["Offline queue<br/>IndexedDB, client UUIDs"]
+    CAM --> QC --> IRIS --> ED --> ROI --> AI --> Q
+  end
+
+  subgraph Cloud["Backend (Supabase / Lovable Cloud)"]
+    AUTH["Auth + roles"]
+    DB[("Postgres + RLS<br/>patients, eye_images,<br/>reviews, model_runs,<br/>predictions, audit_log")]
+    ST[("Private storage<br/>eye-photos bucket")]
+    RPC["RPC: dashboard_stats"]
+  end
+
+  subgraph Doc["Doctor / admin web"]
+    REV["Review queue<br/>pupil ROI only"]
+    ADM["Admin: users, sites,<br/>model URL, export"]
+  end
+
+  subgraph ML["ML pipeline (Colab + GitHub)"]
+    EXP["Export labelled data"]
+    TR["Train + evaluate<br/>MobileNetV2, Grad-CAM,<br/>shortcut check"]
+    REL["Release model vN<br/>TFLite + TF.js on GitHub"]
+    EXP --> TR --> REL
+  end
+
+  Q -- "sync when online" --> DB
+  Q -- "upload photos" --> ST
+  REV <--> DB
+  REV <--> ST
+  ADM <--> DB
+  DB --> EXP
+  ST --> EXP
+  REL -- "register in model_runs" --> DB
+  REL -- "download model" --> AI

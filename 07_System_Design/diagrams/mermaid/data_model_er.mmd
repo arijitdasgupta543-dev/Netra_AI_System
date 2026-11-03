@@ -1,0 +1,57 @@
+erDiagram
+  sites ||--o{ patients : "screened at"
+  patients ||--|{ eye_images : "has 1-2"
+  eye_images ||--o{ reviews : "labelled by doctors"
+  eye_images ||--o{ predictions : "scored by"
+  model_runs ||--o{ predictions : "produced"
+  patients ||--o| referrals : "may have"
+  user_roles }o--|| profiles : "role of"
+
+  patients {
+    uuid id PK "client-generated"
+    text study_id "NETRA-0001"
+    int age
+    text sex
+    text area
+    bool consent_given
+    text consent_type
+  }
+  eye_images {
+    uuid id PK "client-generated"
+    text eye "left/right, unique per patient"
+    text storage_path "full photo"
+    text pupil_roi_path
+    text thumb_path
+    float circle_cx_cy_r
+    text circle_method "auto/manual/auto-then-edited"
+    jsonb capture_checks
+    text phone_model
+  }
+  reviews {
+    uuid eye_image_id FK
+    uuid doctor_id
+    text diagnosis
+    int confidence
+    bool referral
+  }
+  model_runs {
+    uuid id PK
+    text version "v3.0"
+    text data_hash
+    jsonb metrics
+    float threshold
+    text model_url
+    text git_commit
+    bool active
+  }
+  predictions {
+    uuid eye_image_id FK
+    uuid model_run_id FK
+    float score
+    bool positive
+  }
+  referrals {
+    uuid patient_id FK
+    date referred_on
+    text outcome "reached/not reached/unknown"
+  }

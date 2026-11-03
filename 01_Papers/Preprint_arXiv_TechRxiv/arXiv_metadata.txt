@@ -1,0 +1,21 @@
+arXiv submission metadata (copy into the arXiv form)
+
+Title:
+Netra AI: An Offline-First smartphone system for cataract screening and referral—architecture, on-device deep learning and pre-clinical technical verification
+
+Authors:
+Arijit Das Gupta
+
+Abstract (arXiv limit 1,920 characters; this one has 1716):
+Smartphone cataract screening tools usually report model accuracy but rarely verify the system around it: what happens to negative results, whether reference labels are independent of the artificial intelligence (AI), whether data survive poor networks, and whether the on-device model matches the original. This paper presents Netra AI, an offline-first web application in which health workers photograph the eye with a low-cost phone, receive an on-device score from a pupil crop, and refer patients through database-enforced rules. Four convolutional neural networks were compared by five-fold cross-validation on 212 clinician-reviewed public eye images. MobileNetV2 reached an out-of-fold area under the receiver operating characteristic curve (AUC) of 0.976 and 92.0% accuracy, comparable to DenseNet121, ResNet50 and VGG16 (AUC 0.972 to 0.984), against 0.939 with the original labels. TensorFlow Lite and TensorFlow.js models reproduced all reference decisions on the locked test split, and median browser inference took 247 ms under sixfold central processing unit (CPU) throttling. The data layer was verified with 29 database behavior checks, injection of 35,702 network faults (no screening lost or duplicated), a load test with 200,401 synthetic patients, and a Monte Carlo study of estimating field sensitivity from a random audit of AI-negative patients. Verification exposed and fixed seven design faults, including an audit flaw that would have overstated field sensitivity by 3 to 11 percentage points and a blinding leak through the review queue. Growth analysis shows that storage and ophthalmologist time, not database load, limit scale. Clinical accuracy will be measured in a prospective study.
+
+Comments:
+12 pages, 7 figures, 13 tables, 47 references. Code and research materials: https://github.com/arijitdasgupta543-dev/netra-ai-bd
+
+Primary category: cs.CV (Computer Vision and Pattern Recognition)
+Cross-list: cs.CY (Computers and Society), cs.SE (Software Engineering)
+
+MSC / ACM class: leave empty
+Journal reference: leave empty
+DOI: leave empty
+License: CC BY 4.0 (Creative Commons Attribution) — compatible with later publication in PLOS

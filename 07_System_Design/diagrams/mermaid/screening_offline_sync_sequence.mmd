@@ -1,0 +1,18 @@
+sequenceDiagram
+  participant W as Health worker
+  participant A as App (phone)
+  participant L as IndexedDB queue
+  participant S as Supabase
+  W->>A: Consent + age/sex/area
+  A->>A: Create patient UUID + eye UUIDs (client side)
+  W->>A: Capture right eye, then left eye
+  A->>A: Quality checks, pupil circle, ROI, thumbnail, AI score
+  A->>S: Try submit
+  alt Network OK
+    S-->>A: Study ID (NETRA-0001)
+  else Network error
+    A->>L: Save whole screening
+    A-->>W: "Saved on phone, will upload"
+    Note over A,L: On app start, on 'online' event, every 60 s
+    A->>S: Retry: skip rows that already exist
+  end
