@@ -3,7 +3,7 @@
 This folder holds everything needed to check or reproduce the results in
 "Netra AI: An offline-first smartphone system for cataract screening and referral—architecture,
 on-device deep learning and pre-clinical technical verification".
-The application itself (code, database migrations, unit tests, fault-injection test) is in the rest of this repository.
+The application itself (code, unit tests, fault-injection test) is in https://github.com/arijitdasgupta543-dev/netra-ai-bd; the database migrations are also in `07_System_Design/database/`.
 
 ## Data (`data/`)
 
