@@ -1,5 +1,5 @@
-# Netra AI — System, Papers and Research Materials
-# নেত্র এআই — সিস্টেম, গবেষণাপত্র ও গবেষণার উপকরণ
+# Netra AI — System Design, Research Data and Model
+# নেত্র এআই — সিস্টেম ডিজাইন, গবেষণার ডেটা ও মডেল
 
 **Author / লেখক:** Arijit Das Gupta (ORCID [0009-0003-2144-5068](https://orcid.org/0009-0003-2144-5068))
 **Live research app / লাইভ অ্যাপ:** https://netra-ai-bd.lovable.app
@@ -29,30 +29,31 @@ An offline-first smartphone web application in which health workers photograph t
 
 | Folder | Contents / কী আছে |
 |---|---|
-| `01_Papers/PLOS_Digital_Health_submission/` | Manuscript (DOCX + PDF), cover letter, Fig1–Fig7 (TIFF), S1 Table, S1 Checklist (TRIPOD+AI), form answers / PLOS-এ জমার সব ফাইল |
-| `01_Papers/Preprint_arXiv_TechRxiv/` | 12-page IEEE-style preprint PDF, LaTeX source, arXiv metadata, endorsement plan and email / preprint আর arXiv-এর ফাইল |
-| `01_Papers/IEEE_Access_version/` | IEEE Access formatted version (14 pages) and LaTeX source / IEEE Access সংস্করণ |
-| `01_Papers/Paper2_Field_Study/` | Protocol and manuscript skeleton for the field study with patients / রোগীদের নিয়ে মাঠ-গবেষণার পরিকল্পনা |
-| `02_Documents/` | System design, guides, rejection-proofing plan, clinician label check, notes on related papers, results history (v1 → v2 → v3) / নকশা, গাইড ও নোট |
-| `03_Research_Data_and_Code/` | Image manifest with reviewed labels, iris circles, clinician review results, training/analysis scripts, benchmarks, database tests, hazard analysis, Colab notebook / ডেটার তালিকা, লেবেল, script ও পরীক্ষা |
-| `04_Figures/` | All paper figures (PNG) / paper-এর সব ছবি |
+| `01_Papers/PLOS_Digital_Health_submission/` | Manuscript prepared for *PLOS Digital Health* (DOCX + PDF), cover letter, Fig1–Fig7 (TIFF), S1 Table, S1 Checklist (TRIPOD+AI) / PLOS-এর জন্য তৈরি পেপার |
+| `03_Research_Data_and_Code/` | Image manifest with reviewed labels, iris circles, clinician review results, training and analysis scripts, benchmarks, database checks, hazard analysis, Colab notebook / ডেটার তালিকা, লেবেল, script ও পরীক্ষা |
+| `04_Figures/` | Result and architecture figures (PNG) / ফলাফল ও নকশার ছবি |
 | `05_Model/` | Deployed model v3.1: TF.js graph model and TensorFlow Lite (float16) / চালু মডেল |
 | `06_Dataset/` | How to obtain the public images and which ones were used / ছবির উৎস ও তালিকা |
 | `07_System_Design/` | Complete system design: requirements, architecture, 18 design decisions, triage/audit/offline logic, scalability, verification, hazards, diagrams and all database migrations / পুরো সিস্টেম ডিজাইন |
 
-## Papers / গবেষণাপত্র
+## Publication / প্রকাশনা
 
-1. **Netra AI: An offline-first smartphone system for cataract screening and referral—architecture, on-device deep learning and pre-clinical technical verification.** Submitted to *PLOS Digital Health* (2026); preprint planned on arXiv/TechRxiv.
-2. **Field performance and referral outcomes (Paper 2)** — protocol stage; requires ethics approval and a clinical partner.
+The manuscript "Netra AI: An offline-first smartphone system for cataract screening and referral—architecture, on-device deep learning and pre-clinical technical verification" is in `01_Papers/PLOS_Digital_Health_submission/` (prepared for *PLOS Digital Health*, 2026). The published version will be linked here. A field study with patients is planned and requires ethics approval and a clinical partner.
 
 ## Reproducing the results / ফলাফল আবার তৈরি করা
 
 See `03_Research_Data_and_Code/README.md`. In short: download the Kaggle images (see `06_Dataset/`), run `ml/train_v3.py` → `ml/make_v5.py` → `ml/train_cv.py` / `run_cv.sh` → `ml/final_clean.py` → `analysis/analyze.py`.
 
+## Author's role and tools / লেখকের ভূমিকা ও ব্যবহৃত tool
+
+Problem selection, system design and requirements, data curation and clinician label review, model training and evaluation, verification (database checks, fault injection, load test) and analysis: Arijit Das Gupta. The web interface was scaffolded with Lovable, and AI coding assistants (Claude, Anthropic) were used for code, analysis and writing; all generated code and text were reviewed and tested by the author, who is responsible for the content.
+
+**বাংলা:** সমস্যা বাছাই, সিস্টেমের নকশা, ডেটা যাচাই ও ডাক্তারের লেবেল রিভিউ, মডেল train ও মূল্যায়ন, যাচাই আর বিশ্লেষণ: অরিজিৎ দাশ গুপ্ত। অ্যাপের ইন্টারফেস Lovable দিয়ে শুরু করা, আর কোড, বিশ্লেষণ ও লেখায় AI সহকারী ব্যবহার করা হয়েছে; সব কোড ও লেখা লেখক নিজে যাচাই ও পরীক্ষা করেছেন।
+
 ## Acknowledgment / কৃতজ্ঞতা
 
-Dr. Nafis Ahmed Shahriar (Chittagong Eye Hospital, Chattogram, Bangladesh) reviewed the image labels. Claude (Anthropic) assisted with code, analysis and writing; the author reviewed all outputs and is responsible for the content.
+Dr. Nafis Ahmed Shahriar (Chittagong Eye Hospital, Chattogram, Bangladesh) reviewed the image labels.
 
 ## Licence / লাইসেন্স
 
-Code: MIT. Documents, figures and papers: CC BY 4.0. The eye images belong to their original sources and are not redistributed here.
+Code: MIT. Documents, figures and the manuscript: CC BY 4.0. The eye images belong to their original sources and are not redistributed here.
